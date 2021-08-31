@@ -1,4 +1,4 @@
-SELECT 
+create table athlete_events_t(SELECT 
     ID,
     Name AS Competitor_Name,
     CASE
@@ -16,9 +16,9 @@ SELECT
     Weight,
     NOC AS Nation_Code,
     SUBSTR(Games, 1, 4) AS Year,
-    SUBSTR(Games, 6) AS Season,
-    Games,
-    City,
+   -- SUBSTR(Games, 6) AS Season,
+   -- Games,
+   -- City,
     Sport,
     Event,
     CASE
@@ -26,4 +26,6 @@ SELECT
         ELSE Medal
     END AS Medal
 FROM
-    athlete_events;
+    athlete_events
+WHERE
+    SUBSTR(Games, 6) = 'Summer');
